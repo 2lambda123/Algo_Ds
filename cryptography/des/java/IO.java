@@ -1,5 +1,6 @@
 package cryptography.des.java;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.*;
 
 public class IO {
@@ -15,7 +16,7 @@ public class IO {
 
     public String readMessageFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader(INPUT_FILE_PATH))) {
-            return reader.readLine();
+            return BoundedLineReader.readLine(reader, 5_000_000);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -25,8 +26,8 @@ public class IO {
 
     public String readKeyFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader(INPUT_FILE_PATH))) {
-            reader.readLine();
-            return reader.readLine();
+            BoundedLineReader.readLine(reader, 5_000_000);
+            return BoundedLineReader.readLine(reader, 5_000_000);
         } catch (IOException e) {
             e.printStackTrace();
         }
