@@ -26,6 +26,7 @@ import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.*;
 
 class BFS {
@@ -91,7 +92,7 @@ class BFS {
     }
 
     private static void printSolution(List<Integer> way) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(OUTPUT_FILE_PATH))) {
+        try (BufferedWriter writer = Files.newBufferedWriter(OUTPUT_FILE_PATH.toPath())) {
             writer.write(Integer.toString(way.get(0)));
 
             for (int i = 1; i < way.size(); i++) {

@@ -1,6 +1,7 @@
 package cryptography.des.java;
 
 import java.io.*;
+import java.nio.file.Files;
 
 public class IO {
 
@@ -35,7 +36,7 @@ public class IO {
     }
 
     public void writeStringInFile(String text) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(OUTPUT_FILE_PATH))) {
+        try (BufferedWriter writer = Files.newBufferedWriter(OUTPUT_FILE_PATH.toPath())) {
             writer.write(text);
             writer.flush();
         } catch (IOException e) {

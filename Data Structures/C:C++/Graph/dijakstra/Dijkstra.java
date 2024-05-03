@@ -2,6 +2,7 @@ import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
@@ -128,7 +129,7 @@ public class Dijkstra {
 
         answer.append(String.format("\nLength: %d\n", dist[end]));
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(OUTPUT_FILE_PATH))) {
+        try (BufferedWriter writer = Files.newBufferedWriter(OUTPUT_FILE_PATH.toPath())) {
             writer.write(answer.toString());
         } catch (IOException e) {
             e.printStackTrace();

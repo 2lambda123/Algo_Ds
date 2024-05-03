@@ -27,6 +27,7 @@ import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.*;
 
 public class DFS {
@@ -89,7 +90,7 @@ public class DFS {
     }
 
     private static void printSolution(String answer) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(OUTPUT_FILE_PATH))) {
+        try (BufferedWriter writer = Files.newBufferedWriter(OUTPUT_FILE_PATH.toPath())) {
             String[] points = answer.split(" ");
             writer.write(points[0]);
 
