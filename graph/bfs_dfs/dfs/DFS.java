@@ -58,7 +58,7 @@ public class DFS {
             for (int row = 0; row < matrixSize; row++) {
                 String[] numbers = scanner.nextLine().split(" ");
                 for (int col = 0; col < matrixSize; col++) {
-                    if (numbers[col].equals("INF")) {
+                    if ("INF".equals(numbers[col])) {
                         matrix[row][col] = INF;
                     } else {
                         matrix[row][col] = Integer.parseInt(numbers[col]);
